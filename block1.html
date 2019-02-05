@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Перевод скорости из км/ч в м/c</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="img/favicon.png">
+</head>
+<body>
+    <div class="gb__main-wrapper">
+        <header class="header site-header">
+            <div class="container pt-4">
+                <h3><a class="text-white" href="index.html">Index</a> > Block 1</h3>
+            </div>
+        </header>
+        <div class="container footer-stick row">
+            <div class="card shadow m-auto w-500">
+                <div class="card-header shadow-sm">
+                    Перевод скорости из км/ч в м/c
+                </div>
+                <div class="card-body text-dark">
+                    <form>
+                        <div class="form-group">
+                            <input type="number" id="input" class="form-control d-inline-block w-90"
+                                   placeholder="write something" onkeyup="convertToMs(this.value)"> км/с
+                        </div>
+                        <div class="text-center">
+                            <span id="result">0.00</span> м/с
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer d-print-none">
+            <div class="site-footer__content">
+                <p class="author">
+                    <img src="img/favicon.png" alt="favicon" style="width: 50px;">
+                    Copyright JT © (2019) - «Test Application for Alarm.ru»
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function convertToMs(input) {
+            let result = (+input / 3.6).toFixed(2);
+            $('#result').html(result);
+        }
+    </script>
+</body>
+</html>

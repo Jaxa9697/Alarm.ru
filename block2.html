@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Вывод знака зодиака по дате рождения</title>
+
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/bootstrap-datepicker.min.css'>
+    <link rel='stylesheet' href='css/icons.css'>
+    <link rel='stylesheet' href='css/main.css'>
+    <link rel='icon' href='img/favicon.png'>
+</head>
+<body>
+<div class='gb__main-wrapper'>
+    <header class='header site-header'>
+        <div class='container pt-4'>
+            <h3><a class='text-white' href='index.html'>Index</a> > Block 2</h3>
+        </div>
+    </header>
+    <div class='container footer-stick row'>
+        <div class='card shadow m-auto w-500'>
+            <div class='card-header shadow-sm'>
+                Вывод знака зодиака по дате рождения
+            </div>
+            <div class='card-body text-dark'>
+                <form>
+                    <div class='form-group input-group date'>
+                        <input id='birthday' name='birthday' type='text' class='form-control datetime'>
+                        <div class='input-group-append input-group-addon'>
+                                    <span class='input-group-text'>
+                                        <i class='material-icons'>event</i>
+                                    </span>
+                        </div>
+                    </div>
+                    <div class='text-center'>
+                        <span id='result'></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class='site-footer d-print-none'>
+        <div class='site-footer__content'>
+            <p class='author'>
+                <img src='img/favicon.png' alt='favicon' style='width: 50px;'>
+                Copyright JT © (2019) - «Test Application for Alarm.ru»
+            </p>
+        </div>
+    </footer>
+</div>
+
+<script src='js/jquery-3.3.1.min.js'></script>
+<script src='js/bootstrap.min.js'></script>
+<script src='js/bootstrap-datepicker.min.js'></script>
+<script>
+    $('.input-group.date').datepicker({
+        startView: 2
+    }).on('changeDate', function(e) {
+        let date = e.date;
+        let zod_signs = ['Козерог', 'Водолей' , 'Рыбы', 'Овен', 'Телец', 'Близнецы', 'Рак', 'Лев', 'Дева', 'Весы', 'Скорпион', 'Стрелец'];
+        let zod_unicode = ['♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓'];
+
+        let day = date.getDate();
+        let month = date.getMonth();
+        let zodiacSign = -1;
+
+        switch (month)  {
+            case 0: {// Январь
+                if (day < 20) zodiacSign = 0;
+                else zodiacSign = 1;
+            } break;
+            case 1: {// Февраль
+                if (day < 19) zodiacSign = 1;
+                else zodiacSign = 2;
+            } break;
+            case 2: {// Март
+                if (day < 21) zodiacSign = 2;
+                else zodiacSign = 3;
+            } break;
+            case 3: {// Апрел
+                if (day < 20) zodiacSign = 3;
+                else zodiacSign = 4;
+            } break;
+            case 4: {// Май
+                if (day < 21) zodiacSign = 4;
+                else zodiacSign = 5;
+            } break;
+            case 5: {// Июнь
+                if (day < 21) zodiacSign = 5;
+                else zodiacSign = 6;
+            } break;
+            case 6: {// Июль
+                if (day < 23) zodiacSign = 6;
+                else zodiacSign = 7;
+            } break;
+            case 7: {// Август
+                if (day < 23) zodiacSign = 7;
+                else zodiacSign = 8;
+            } break;
+            case 8: {// Сентябрь
+                if (day < 23) zodiacSign = 8;
+                else zodiacSign = 9;
+            } break;
+            case 9: {// Октябрь
+                if (day < 23) zodiacSign = 9;
+                else zodiacSign = 10;
+            } break;
+            case 10: {// Ноябрь
+                if (day < 22) zodiacSign = 10;
+                else zodiacSign = 11;
+            } break;
+            case 11: {// Декабр
+                if (day < 22) zodiacSign = 11;
+                else zodiacSign = 0;
+            } break;
+        }
+
+        $('#result').html(zod_signs[zodiacSign] + ' ' + zod_unicode[zodiacSign]);
+    });
+</script>
+</body>
+</html>
